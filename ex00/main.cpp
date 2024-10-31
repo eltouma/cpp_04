@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:20:48 by eltouma           #+#    #+#             */
-/*   Updated: 2024/10/31 23:13:02 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/10/31 23:24:19 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,8 @@ int main()
 	meta->animalTemper();
 	dog->animalTemper();
 	cat->animalTemper();
+
+	delete (meta);
+	delete (dog);
+	delete (cat);
 }

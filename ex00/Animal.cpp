@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 11:40:02 by eltouma           #+#    #+#             */
-/*   Updated: 2024/10/31 23:12:31 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/10/31 23:23:43 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Animal::Animal(void) : type("no type yet")
 {
-	std::cout << "Default constructor called" << std::endl; 
+	std::cout << "Animal constructor called" << std::endl; 
 }
 
 Animal::~Animal(void)
 {
-	std::cout << "Destructor called" << std::endl; 
+	std::cout << "Animal destructor called" << std::endl; 
 }
 
 Animal::Animal(const Animal& obj)
