@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:20:48 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/01 20:08:53 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/01 20:18:13 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "Cat.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
+#include "Brain.hpp"
 
 /*
 	If you want to see copy with polymorphism add this code before delete()
@@ -48,6 +49,7 @@ int main()
 		dog->animalTemper();
 		cat->animalTemper();
 
+/*
 		std::cout << std::endl;
 		std::cout << std::endl;
 		draw_tab("WrongAnimal");
@@ -67,11 +69,13 @@ int main()
 		wrongMeta->animalTemper();
 		wrongCat->animalTemper();
 
+*/
+		std::cout << "\n";
 		delete (meta);
 		delete (dog);
 		delete (cat);
-		delete (wrongMeta);
-		delete (wrongCat);
+//		delete (wrongMeta);
+//		delete (wrongCat);
 	}
 	catch (std::bad_alloc &e)
 	{

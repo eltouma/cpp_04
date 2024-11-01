@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 12:16:49 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/01 20:05:43 by eltouma          ###   ########.fr       */
+/*   Created: 2024/11/01 14:03:36 by eltouma           #+#    #+#             */
+/*   Updated: 2024/11/01 14:16:27 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class 	Cat : public Animal
+class 	WrongCat : public WrongAnimal
 {
 public:
-	Cat(void);
-	Cat(const Cat& obj);
-	Cat& operator=(const Cat& rhs);
-	virtual ~Cat(void);
+	WrongCat(void);
+	WrongCat(const WrongCat& obj);
+	WrongCat& operator=(const WrongCat& rhs);
+	virtual ~WrongCat(void);
 	virtual void	makeSound(void) const;
 	std::string	getType(void) const;
 	void	noVirtual(void) const;
 	virtual void	animalTemper(void) const;
-	virtual Cat* clone() const;
+	virtual WrongCat* clone() const;
 };

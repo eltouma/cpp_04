@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 12:16:49 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/01 20:05:43 by eltouma          ###   ########.fr       */
+/*   Created: 2024/11/01 19:41:11 by eltouma           #+#    #+#             */
+/*   Updated: 2024/11/01 20:24:57 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include <iostream>
 
-#include "Animal.hpp"
-
-class 	Cat : public Animal
+class	Brain
 {
 public:
-	Cat(void);
-	Cat(const Cat& obj);
-	Cat& operator=(const Cat& rhs);
-	virtual ~Cat(void);
-	virtual void	makeSound(void) const;
-	std::string	getType(void) const;
-	void	noVirtual(void) const;
-	virtual void	animalTemper(void) const;
-	virtual Cat* clone() const;
+	Brain(void);
+	Brain(const Brain& obj);
+	Brain& operator=(const Brain& rhs);
+	~Brain(void);
+	std::string ideas[100];
 };
