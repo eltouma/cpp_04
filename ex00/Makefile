@@ -6,7 +6,7 @@ MAKEFLAGS += --no-print-directory
 GREEN := \e[32m
 RESET :=\e[0m
 
-SRCS = Animal.cpp Dog.cpp Cat.cpp main.cpp
+SRCS = Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp main.cpp
 
 OBJS_PATH = objs/
 
