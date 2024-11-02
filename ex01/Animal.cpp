@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 11:40:02 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/01 19:14:24 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/02 18:08:11 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ std::string	Animal::getType(void) const
 	return (this->type);
 }
 
+Brain*	Animal::getBrain(void) const
+{
+	return (0);
+}
+
 void	Animal::makeSound(void) const
 {
 	std::cout << "No type, no sound" << std::endl; 
@@ -61,36 +66,30 @@ void	Animal::noVirtual(void) const
 	std::cout << " Does this method work as expected? Code answer: no." << std::endl;
 }
 
-void	Animal::animalCopy(const Animal *meta, const Animal *cat, const Animal *dog)
+void	Animal::animalCopy(const Animal *animal[], const Animal *cat, const Animal *dog)
 {
 	std::cout << std::endl;
 	std::cout << std::endl;
 	draw_tab("copies");
 
-	const	Animal	copyMeta = *meta;
-	const	Animal*	copyCat = cat->clone();
-	const	Animal*	copyDog = dog->clone();
+	for (int i = 0; i < IDEAS_NB / 2; i++)
+		animal[i] = cat->clone();
+	for (int i = IDEAS_NB / 2; i < IDEAS_NB; i++)
+		animal[i] = dog->clone();
 
-	std::cout << "\nCopy type: " << copyMeta.getType() << " " << std::endl;
-	copyMeta.makeSound();
-	std::cout << "\nCopy type: " << copyDog->getType() << " " << std::endl;
-	copyDog->makeSound();
-	std::cout << "\nCopy type: " << copyCat->getType() << " " << std::endl;
-	copyCat->makeSound();
-
-	std::cout << "\n🐕 Try to call noVirtual() on copyDog copy" << std::endl;
-	copyDog->noVirtual();
-	std::cout << "\n🐈 Try to call noVirtual() on copyCat copy" << std::endl;
-	copyCat->noVirtual();
-
-	std::cout << "\nHow your pet sees you?" << std::endl;
-	copyMeta.animalTemper();
-	copyCat->animalTemper();
-	copyDog->animalTemper();
-
-	std::cout << std::endl;
-	delete (copyDog);
-	delete (copyCat);
+	for (int i= 0; i < IDEAS_NB; i++)
+	{
+		std::cout << "\nCopy type: " << animal[i]->getType() << " " << std::endl;
+		animal[i]->makeSound();
+		std::cout << "How your pet sees you?" << std::endl;
+		animal[i]->animalTemper();
+		std::cout << "Do copies have brains?" << std::endl;
+		animal[i]->getBrain();
+		std::cout << "Can you call noVirtual() function?" << std::endl;
+		animal[i]->noVirtual();
+	}
+	for (int i= 0; i < IDEAS_NB; i++)
+		delete(animal[i]);
 }
 
 void	draw_tab(std::string str)

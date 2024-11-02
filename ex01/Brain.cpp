@@ -6,14 +6,22 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 19:46:40 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/01 20:13:17 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/02 14:33:49 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
+#include <string>
+#include <sstream>
 
 Brain::Brain(void)
 {
+	for (int i = 0; i < IDEAS_NB; i++)
+	{
+		std::stringstream sstr;
+		sstr << "idea n°" << i; 
+		this->ideas[i] = sstr.str();
+	}
 	std::cout << "Brain default constructor called" << std::endl;
 }
 
@@ -28,12 +36,10 @@ Brain::Brain(const Brain& obj)
 	*this = obj;
 }
 
-Brain	Brain::operator=(const Brain& rhs)
+Brain&	Brain::operator=(const Brain& rhs)
 {
-//	(void)rhs;
-	if (this != &rhs)
-		this->ideas = rhs;
+	for (int i = 0; i < IDEAS_NB; i++)
+		this->ideas[i] = rhs.ideas[i];
 	return (*this);
 }
 
-//std::array<std::string, 100> const Brain::ideas()

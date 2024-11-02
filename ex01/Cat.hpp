@@ -6,17 +6,18 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:16:49 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/01 20:05:33 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/02 14:54:34 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class 	Cat : public Animal
 {
-	class	Brain* _catBrain;
+	Brain* _catBrain;
 public:
 	Cat(void);
 	Cat(const Cat& obj);
@@ -27,4 +28,5 @@ public:
 	void	noVirtual(void) const;
 	virtual void	animalTemper(void) const;
 	virtual Cat* clone() const;
+	virtual Brain*	getBrain(void) const;
 };

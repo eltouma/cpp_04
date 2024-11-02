@@ -6,11 +6,15 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 19:41:11 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/01 20:24:57 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/02 18:17:44 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
 #include <iostream>
+
+# define IDEAS_NB 100
 
 class	Brain
 {
@@ -19,5 +23,5 @@ public:
 	Brain(const Brain& obj);
 	Brain& operator=(const Brain& rhs);
 	~Brain(void);
-	std::string ideas[100];
+	std::string ideas[IDEAS_NB];
 };
