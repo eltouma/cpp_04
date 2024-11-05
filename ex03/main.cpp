@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 12:16:49 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/05 13:15:15 by eltouma          ###   ########.fr       */
+/*   Created: 2024/11/05 12:17:19 by eltouma           #+#    #+#             */
+/*   Updated: 2024/11/05 14:01:43 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "AMateria.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
-#include "Animal.hpp"
-
-class 	Cat : public Animal
+int	main(void)
 {
-public:
-	Cat(void);
-	Cat(const Cat& obj);
-	Cat& operator=(const Cat& rhs);
-	virtual ~Cat(void);
-	virtual void	makeSound(void) const;
-	void	noVirtual(void) const;
-	virtual void	animalTemper(void) const;
-	virtual Cat* clone() const;
-};
+	const AMateria *materia = new Ice();
+	AMateria *iceClone = materia->clone();
+
+	delete (materia);
+	delete (iceClone);
+
+}

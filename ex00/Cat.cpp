@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:17:21 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/01 19:12:19 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/05 13:16:49 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,9 @@ Cat* Cat::clone(void) const
 	return (new Cat(*this));
 }
 
-std::string	Cat::getType(void) const
-{
-	return (this->type);
-}
-
 void	Cat::makeSound(void) const
 {
-	std::cout << "The cat meows" << std::endl; 
+	std::cout << "Meows" << std::endl; 
 }
 
 void	Cat::noVirtual(void) const

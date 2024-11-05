@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:11:05 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/01 19:13:08 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/05 13:16:36 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,9 @@ Dog* Dog::clone(void) const
 	return (new Dog(*this));
 }
 
-std::string	Dog::getType(void) const
-{
-	return (this->type);
-}
-
 void	Dog::makeSound(void) const
 {
-	std::cout << "The dogs barks" << std::endl; 
+	std::cout << "Barks" << std::endl; 
 }
 
 void	Dog::noVirtual(void) const

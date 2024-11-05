@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:17:21 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/02 17:53:00 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/05 13:17:33 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,6 @@ Cat& Cat::operator=(const Cat& rhs)
 Cat* Cat::clone(void) const
 {
 	return (new Cat(*this));
-}
-
-std::string	Cat::getType(void) const
-{
-	return (this->type);
 }
 
 Brain*	Cat::getBrain(void) const

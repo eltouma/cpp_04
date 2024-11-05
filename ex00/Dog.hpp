@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:07:02 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/01 20:05:51 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/05 13:15:56 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ public:
 	Dog& operator=(const Dog& rhs);
 	virtual ~Dog(void);
 	void	makeSound(void) const;
-	std::string	getType(void) const;
 	void	noVirtual(void) const;
 	void	animalTemper(void) const;
 	virtual Dog* clone(void) const;

@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 12:16:49 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/05 13:15:15 by eltouma          ###   ########.fr       */
+/*   Created: 2024/11/05 14:21:46 by eltouma           #+#    #+#             */
+/*   Updated: 2024/11/05 14:26:49 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Animal.hpp"
+#include "AMateria.hpp"
 
-class 	Cat : public Animal
+// TO DO : forme canonique ? cf correction
+
+class 	ICharacter
 {
 public:
-	Cat(void);
-	Cat(const Cat& obj);
-	Cat& operator=(const Cat& rhs);
-	virtual ~Cat(void);
-	virtual void	makeSound(void) const;
-	void	noVirtual(void) const;
-	virtual void	animalTemper(void) const;
-	virtual Cat* clone() const;
+	virtual ~ICharacter() {}
+	virtual std::string const & getName() const = 0;
+	virtual void	equip(AMateria* m) = 0;
+	virtual void	unequip(int idx) = 0;
+	virtual void	use(int idx, ICharacter& target) = 0;
 };
