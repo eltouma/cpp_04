@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 11:40:02 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/02 18:08:11 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/04 15:22:40 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,31 +33,6 @@ Animal& Animal::operator=(const Animal& rhs)
 	if (this != &rhs)
 		this->type = rhs.getType();
 	return (*this);
-}
-
-Animal* Animal::clone(void) const
-{
-	return (0);
-}
-
-std::string	Animal::getType(void) const
-{
-	return (this->type);
-}
-
-Brain*	Animal::getBrain(void) const
-{
-	return (0);
-}
-
-void	Animal::makeSound(void) const
-{
-	std::cout << "No type, no sound" << std::endl; 
-}
-
-void	Animal::animalTemper(void) const
-{
-	std::cout << "No type, no temper" << std::endl; 
 }
 
 void	Animal::noVirtual(void) const
