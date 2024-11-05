@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 12:04:40 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/05 14:27:44 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/05 18:54:51 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ AMateria::AMateria(const AMateria& obj)
 AMateria::AMateria(std::string const & type)
 {
 	this->type = type;
-	std::cout << "Type: " << this->type << std::endl;
+	std::cout << "AMateria type: " << this->type << std::endl;
 }
 
 AMateria& AMateria::operator=(const AMateria& rhs)
@@ -47,7 +47,7 @@ std::string const & AMateria::getType() const
 	return (this->type);
 }
 
-void	use(ICharacter & target)
+void	AMateria::use(ICharacter & target)
 {
 	(void)target;
 	std::cout << "AMateria target" << std::endl;

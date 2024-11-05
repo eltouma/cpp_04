@@ -6,7 +6,7 @@ MAKEFLAGS += --no-print-directory
 GREEN := \e[32m
 RESET :=\e[0m
 
-SRCS = AMateria.cpp Ice.cpp Cure.cpp main.cpp
+SRCS = AMateria.cpp ICharacter.cpp Ice.cpp Cure.cpp main.cpp
 
 OBJS_PATH = objs/
 
