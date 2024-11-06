@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   DroppedMateria.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 12:30:09 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/06 11:20:00 by eltouma          ###   ########.fr       */
+/*   Created: 2024/11/06 15:52:31 by eltouma           #+#    #+#             */
+/*   Updated: 2024/11/06 16:40:58 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
+#include <iostream>
 #include "AMateria.hpp"
 
-
-class Ice : public AMateria
+class DroppedMateria
 {
-protected:
-	std::string	type;
-public:
-	Ice(void);
-	Ice& operator=(const Ice& rhs);
-	Ice(const Ice& obj);
-	virtual ~Ice(void);
+	struct Node
+	{
+		AMateria* node;
+		Node*	next;
+		Node(AMateria *m);
+	};
+	Node*	head;
 
-	virtual Ice* clone(void) const;
-	virtual void use(ICharacter& target);
+public:
+	DroppedMateria(void);
+	~DroppedMateria(void);
+	DroppedMateria(const DroppedMateria& obj);
+	DroppedMateria& operator=(const DroppedMateria& rhs);
+	void	add(AMateria* m);
+	void	clear(void);
 };

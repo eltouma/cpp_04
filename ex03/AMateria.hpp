@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 11:48:13 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/05 14:28:59 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/06 15:51:55 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,15 @@ public:
 
 	AMateria(std::string const& type);
 	std::string const & getType() const;
-
-// Pour le moment
-// error: allocating an object of abstract class type 'AMateria'
-// A Tester apres avoir implementer Ice ou Cure
 	virtual AMateria* clone(void) const = 0;
-
 	virtual void use(ICharacter& target);
 };
+
+// mettre ça dans le main()
+/*
+class	droppedMateria
+{
+	AMateria*	materia;
+	droppedMateria*	next;
+}
+*/

@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 12:30:09 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/05 13:47:48 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/06 11:01:01 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ public:
 	virtual ~Cure(void);
 
 	virtual Cure* clone(void) const;
+	virtual void use(ICharacter& target);
 };
