@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:17:21 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/05 13:17:33 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/07 21:44:26 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ Cat::Cat(const Cat& obj) : Animal()
 {
 	this->type = obj.type;
 	this->_catBrain = new Brain(*obj._catBrain);
-	*this = obj;
 	std::cout << "🐈 \033[1;33mCat copy\033[0m constructor called" << std::endl;
 }
 

@@ -24,7 +24,7 @@ Cure::~Cure(void)
 
 Cure::Cure(const Cure & obj) : AMateria()
 {
-	this->type = obj.type;
+	this->_type = obj._type;
 	*this = obj;
 	std::cout << "🧖 Cure copy destructor called" << std::endl;
 }
@@ -32,7 +32,7 @@ Cure::Cure(const Cure & obj) : AMateria()
 Cure& Cure::operator=(const Cure & rhs)
 {
 	if (this != &rhs)
-		this->type = rhs.getType();
+		this->_type = rhs.getType();
 	return (*this);
 }
 

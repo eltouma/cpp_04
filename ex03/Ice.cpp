@@ -24,7 +24,7 @@ Ice::~Ice(void)
 
 Ice::Ice(const Ice & obj) : AMateria()
 {
-	this->type = obj.type;
+	this->_type = obj._type;
 	*this = obj;
 	std::cout << "🧊 Ice copy destructor called" << std::endl;
 }
@@ -32,7 +32,7 @@ Ice::Ice(const Ice & obj) : AMateria()
 Ice& Ice::operator=(const Ice & rhs)
 {
 	if (this != &rhs)
-		this->type = rhs.getType();
+		this->_type = rhs.getType();
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:11:05 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/05 13:18:05 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/07 21:43:43 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ Dog::Dog(const Dog& obj) : Animal()
 {
 	this->type = obj.type;
 	this->_dogBrain = new Brain(*obj._dogBrain);
-	*this = obj;
 	std::cout << "🐕 \033[1;33mDog copy\033[0m constructor called" << std::endl;
 }
 

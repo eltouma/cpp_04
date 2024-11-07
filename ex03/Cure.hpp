@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 12:30:09 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/06 11:01:01 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/07 11:30:26 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 #include "AMateria.hpp"
 
-
 class Cure : public AMateria
 {
 protected:
-	std::string	type;
+	std::string	_type;
+
 public:
 	Cure(void);
 	Cure& operator=(const Cure& rhs);

@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 15:59:13 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/06 16:42:48 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/07 22:04:34 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,33 @@ DroppedMateria::Node::Node(AMateria* m) : node(m), next(NULL)
 {
 }
 
+DroppedMateria::Node*	DroppedMateria::last(void)
+{
+	Node*	current;
+
+	if (!head)
+		return (NULL);
+	current = head;
+	while (current->next != NULL)
+		current = current->next;
+	return (current);
+}
+
 void	DroppedMateria::add(AMateria* m)
 {
 	Node*	new_node;
+	Node*	last_node;
 
+	if (!m)
+		return ;
 	new_node = new Node(m);
-	new_node->next = head;
-	head = new_node;
+	last_node = last();
+	if (!head)
+		head = new_node;
+	if (!last_node)
+		new_node->next = new_node;
+//	new_node->next = head;
+//	head = new_node;
 }
 
 void	DroppedMateria::clear(void)
