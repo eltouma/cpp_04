@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:37:28 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/08 04:17:22 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/08 04:39:30 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,6 @@ Character::Character(void) : ICharacter(), _name("John"), _index(0)
 
 Character::~Character(void)
 {
-	//	for (int i = 0; i < INDEX; i++)
-	//		delete (this->_inventory[i]);
-//	if (_dropped)
-//	{
-//		std::cout << "je drop\n";
-//		_dropped.clear();
-//	delete(_dropped);
-//	}
 	std::cout << "Character destrutor called" << std::endl;
 }
 
