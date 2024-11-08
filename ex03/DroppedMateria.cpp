@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 15:59:13 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/07 22:04:34 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/08 04:23:17 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ DroppedMateria::DroppedMateria(void) : head(NULL)
 
 DroppedMateria::~DroppedMateria(void)
 {
+	clear();
 }
 
 
@@ -54,6 +55,8 @@ DroppedMateria::Node*	DroppedMateria::last(void)
 	current = head;
 	while (current->next != NULL)
 		current = current->next;
+	std::cout << __func__ << " head " << head << std::endl;
+	//delete (head);
 	return (current);
 }
 
@@ -66,26 +69,43 @@ void	DroppedMateria::add(AMateria* m)
 		return ;
 	new_node = new Node(m);
 	last_node = last();
-	if (!head)
-		head = new_node;
 	if (!last_node)
-		new_node->next = new_node;
-//	new_node->next = head;
+		head = new_node;
+	else
+		last_node->next = new_node;
+	std::cout << __func__ << " head " << head << std::endl;
 //	head = new_node;
 }
 
 void	DroppedMateria::clear(void)
 {
+	std::cout << __func__ << " head " << head << std::endl;
+	Node	*tmp;
+
+	tmp = head;
+	while (head)
+	{
+		tmp = head->next;
+		delete (head);
+		head = tmp;
+	}
+	if (head)
+		delete (head);
+/*
 	Node*	current; 
 	Node*	tmp;
 
+	std::cout << __func__ << " head " << head << std::endl;
 	current = head;
-	while (current->next)
+	while (current->next != NULL)
 	{
 		tmp = current;
 		current = current->next;
 		delete (tmp->node);
 		delete (tmp);
 	}
+	delete (current);
+	current = NULL;
 	head = NULL;
+*/
 }

@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 12:17:19 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/07 22:05:12 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/08 04:19:34 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,19 @@ int	main(void)
 
 	AMateria        *tmp;
 	tmp = new Ice();
+	AMateria        *tmp1;
+	tmp1 = new Ice();
 
+	AMateria        *tmp2;
+	tmp2 = new Ice();
+
+	AMateria        *tmp3;
+	tmp3 = new Ice();
+	AMateria        *tmp4;
+	tmp4 = new Ice();
+
+	AMateria        *tmp5;
+	tmp5 = new Ice();
 	/*
 	   ICharacter *x = new Character("x");
 	   ICharacter *x1 = new Character("x1"); 
@@ -66,14 +78,22 @@ int	main(void)
 //	ICharacter *x5 = new Character();
 //	ICharacter *x6 = new Character();
 	x->equip(tmp);
-	x->unequip(12);
+	x->equip(tmp1);
+	x->equip(tmp2);
+	x->equip(tmp3);
+	x->equip(tmp4);
+	x->equip(tmp5);
+//	x->unequip(12);
+	std::cout << "\n\n";
+/*
 	x->unequip(1);
 	x->use(1, *john); 
+*/
 /*
 	x1->equip(tmp);
 	x2->equip(tmp);
 	x3->equip(tmp);
-*/
+
 	x4->equip(tmp);
 	x4->equip(tmp);
 	x4->equip(tmp);
@@ -82,6 +102,7 @@ int	main(void)
 //	x5->equip(tmp);
 //	x6->equip(tmp);
 
+*/
 /*
 	Character	*y = new Character("nouveau");
 
@@ -96,6 +117,11 @@ int	main(void)
 //	delete (x5);
 //	delete (x6);
 	delete (tmp);
+	delete (tmp1);
+	delete (tmp2);
+	delete (tmp3);
+	delete (tmp4);
+	delete (tmp5);
 	delete (john);
 	delete (jackson);
 	delete (iceMateria);

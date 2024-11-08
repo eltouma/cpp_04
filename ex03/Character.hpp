@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 14:21:46 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/07 13:23:29 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/08 04:16:21 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class 	Character : public ICharacter
 	std::string	_name;
 	AMateria*	_inventory[INDEX];
 	int		_index;
-	//DroppedMateria*	_dropped;
+//	DroppedMateria*	_dropped;
 	DroppedMateria	_dropped;
 //	AMateria*	_dropped;
 //	int		_droppedSize;

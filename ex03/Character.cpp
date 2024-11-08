@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:37:28 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/07 20:26:09 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/08 04:17:22 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,14 @@ Character::Character(void) : ICharacter(), _name("John"), _index(0)
 
 Character::~Character(void)
 {
-//	for (int i = 0; i < INDEX; i++)
-//		delete (this->_inventory[i]);
+	//	for (int i = 0; i < INDEX; i++)
+	//		delete (this->_inventory[i]);
+//	if (_dropped)
+//	{
+//		std::cout << "je drop\n";
+//		_dropped.clear();
+//	delete(_dropped);
+//	}
 	std::cout << "Character destrutor called" << std::endl;
 }
 
@@ -60,37 +66,36 @@ std::string const & Character::getName() const
 
 void	Character::equip(AMateria *m)
 {
-//	std::cout << std::endl << "index: " << _index << std::endl;
-/*
-	if (this->_index >= INDEX || !m)
-	{
-		std::cout << "Reponse du code : non\n";
+	static int	j = 0;
+//	j = 0;
+	if (!m)
 		return ;
+	std::cout << std::endl << "index: " << _index << std::endl;
+	while (j < INDEX)
+//	for (j = 0; j < INDEX; j++)
+	{
+		if (this->_inventory[j] == m)
+		{
+			std::cout << m->getType() << " is already equipped" << std::endl;
+			return ;
+		}
+		if (this->_inventory[j] == 0)
+		{
+			this->_inventory[j] = m;
+			std::cout << this->_name << " equipped materia " << m->getType() << std::endl;
+			// TO DO: Mettre une exception pour ne pas avoir plusieurs fois le même message
+			return ;
+		}
+		j += 1;
+	}
+	if (j >= INDEX)
+		drop(m);
+/*
+	{	
+		std::cout << "All of the inventory slots are already equipped" << std::endl;
+		drop(m);
 	}
 */
-
-
-	if (m && this->_index < INDEX)
-	{
-		for (int j = 0; j < INDEX; j++)
-		{
-			if (this->_inventory[j] == m)
-			{
-				std::cout << m->getType() << " is already equipped" << std::endl;
-				return ;
-			}
-			if (this->_inventory[j] == 0)
-			{
-				this->_inventory[j] = m;
-				std::cout << this->_name << " equipped materia " << m->getType() << std::endl;
-			// TO DO: Mettre une exception pour ne pas avoir plusieurs fois le même message
-				return ;
-			}
-		}
-		std::cout << "All of the inventory slots are already equipped" << std::endl;
-	}
-	else
-		drop(m);
 }
 
 void	Character::unequip(int idx)
@@ -124,5 +129,6 @@ void	Character::use(int idx, ICharacter& target)
 
 void	Character::drop(AMateria *m)
 {
+	std::cout <<  __func__  << "\n";
 	_dropped.add(m);
 }
