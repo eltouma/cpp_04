@@ -6,13 +6,13 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:02:15 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/07 16:46:47 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/13 10:18:16 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <iostream>
 
+#include <iostream>
 #include "IMateriaSource.hpp"
 
 class	AMateria;
@@ -25,6 +25,7 @@ public:
 	MateriaSource& operator=(const MateriaSource& rhs);
 	virtual	~MateriaSource(void);
 
-//	virtual void	learnMateria(AMateria*);
+	virtual void	learnMateria(AMateria*);
 //	virtual AMateria*	createMateria(std::string const & _type);
+//	std::string const & getMateria() const;
 };

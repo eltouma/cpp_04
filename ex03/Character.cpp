@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:37:28 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/08 04:39:30 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/13 10:05:51 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ Character::Character(void) : ICharacter(), _name("John"), _index(0)
 		this->_inventory[i] = NULL;
 	std::cout << "Character default construtor " << this->_name << " called. ";
 	std::cout << "Inventory: " << this->_inventory[3] << std::endl;
-	std::cout << "Index: " << this->_index << std::endl;
 }
 
 Character::~Character(void)
@@ -59,12 +58,9 @@ std::string const & Character::getName() const
 void	Character::equip(AMateria *m)
 {
 	static int	j = 0;
-//	j = 0;
 	if (!m)
 		return ;
-	std::cout << std::endl << "index: " << _index << std::endl;
 	while (j < INDEX)
-//	for (j = 0; j < INDEX; j++)
 	{
 		if (this->_inventory[j] == m)
 		{
@@ -81,13 +77,10 @@ void	Character::equip(AMateria *m)
 		j += 1;
 	}
 	if (j >= INDEX)
-		drop(m);
-/*
 	{	
 		std::cout << "All of the inventory slots are already equipped" << std::endl;
 		drop(m);
 	}
-*/
 }
 
 void	Character::unequip(int idx)
@@ -107,20 +100,19 @@ void	Character::use(int idx, ICharacter& target)
 {
 	if (!_inventory[idx])
 	{
-		std::cout << "REPONSE DU CODE: NON!\n";
+		std::cout << "Sorry, materia n°" << idx << " doesn't exist";
+		if (idx <= 3)
+			std::cout << " anymore" << std::endl;
+		else
+			std::cout << std::endl;
 		return ;
 	}
 	if (idx < INDEX)
-	{
 		this->_inventory[idx]->use(target);
-		std::cout << this->_inventory[idx] << " use \n" << target.getName() << std::endl;
-	}
-	else
-		return ;
 }
 
 void	Character::drop(AMateria *m)
 {
-	std::cout <<  __func__  << "\n";
+//	std::cout <<  __func__  << "\n";
 	_dropped.add(m);
 }

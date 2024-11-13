@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 11:48:13 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/07 11:21:56 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/13 10:19:32 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include <iostream>
 #include "ICharacter.hpp"
+#include "IMateriaSource.hpp"
 
 class AMateria
 {

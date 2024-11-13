@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 12:17:19 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/08 04:19:34 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/13 10:02:11 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,12 @@ int	main(void)
 	x->equip(tmp3);
 	x->equip(tmp4);
 	x->equip(tmp5);
-//	x->unequip(12);
 	std::cout << "\n\n";
-/*
+	x->unequip(12);
+	std::cout << "\n\n";
 	x->unequip(1);
 	x->use(1, *john); 
-*/
+	std::cout << "\n\n";
 /*
 	x1->equip(tmp);
 	x2->equip(tmp);

@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:55:25 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/07 15:02:52 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/13 10:20:22 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,15 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& rhs)
 {
 	(void)rhs;
 	return (*this);
+}
+
+/*
+std::string	MateriaSource::getMateria() const
+{
+	return (
+}
+*/
+void	MateriaSource::learnMateria(AMateria* m)
+{
+	m->getType();
 }
