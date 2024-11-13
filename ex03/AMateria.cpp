@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 12:04:40 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/07 11:23:55 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/13 16:18:56 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,16 @@
 
 AMateria::AMateria(void)
 {
-	//std::cout << "AMateria default constructor called"  << std::endl;
 }
 
 AMateria::~AMateria(void)
 {
-//	std::cout << "AMateria destructor called"  << std::endl;
 }
 
 
 AMateria::AMateria(const AMateria& obj)
 {
 	*this = obj;
-//	std::cout << "AMateria copy constructor called"  << std::endl;
 }
 
 AMateria::AMateria(std::string const & _type)
@@ -50,4 +47,18 @@ std::string const & AMateria::getType() const
 void	AMateria::use(ICharacter & target)
 {
 	std::cout << "AMateria target: " << target.getName() << std::endl;
+}
+
+void	draw_tab(std::string str)
+{
+		std::cout << "\u250c";
+		for (int i = 0; i < 39; i++)
+			std::cout << "\u2500";
+		std::cout << "\u2510";
+		std::cout << "\n\u2502\t\t" << str << "\t\t\u2502\n";
+		std::cout << "\u2514";
+		for (int i = 0; i < 39; i++)
+			std::cout << "\u2500";
+		std::cout << "\u2518";
+		std::cout << std::endl;
 }

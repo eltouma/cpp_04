@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 15:59:13 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/13 14:44:47 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/13 19:08:30 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ DroppedMateria::DroppedMateria(void) : head(NULL)
 
 DroppedMateria::~DroppedMateria(void)
 {
-	clear();
 }
 
 
@@ -55,8 +54,6 @@ DroppedMateria::Node*	DroppedMateria::last(void)
 	current = head;
 	while (current->next != NULL)
 		current = current->next;
-	std::cout << __func__ << " head " << head << std::endl;
-	//delete (head);
 	return (current);
 }
 
@@ -73,8 +70,6 @@ void	DroppedMateria::add(AMateria* m)
 		head = new_node;
 	else
 		last_node->next = new_node;
-	std::cout << __func__ << " head " << head << std::endl;
-//	head = new_node;
 }
 
 void	DroppedMateria::clear(void)
@@ -82,14 +77,13 @@ void	DroppedMateria::clear(void)
 	Node	*tmp;
 
 	tmp = head;
-	std::cout << "AVANT dans " << __func__ << " head " << tmp << std::endl;
 	while (head)
 	{
 		tmp = head->next;
+		delete (head->node);
 		delete (head);
 		head = tmp;
 	}
 	if (tmp)
 		delete (tmp);
-	std::cout << "APRES dans " << __func__ << " head " << tmp << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:20:48 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/07 21:45:31 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/13 18:45:09 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,45 @@
 	*dogCopy = *dogOriginal;
 
 	for (int i = 0; i < IDEAS_NB / 2; i++)
-		metaCopy[i] = new Cat(*catCopy);
+	{
+		try {
+			metaCopy[i] = new Dog();
+		}
+		catch (std::bad_alloc &ba)
+		{
+			for (int j = i - 1; j > 0; j--)
+				delete (metaCopy[j]);
+			std::cerr << ba.what() << std::endl;
+			return (1);
+		}
+		if (!metaCopy[i]->getBrain())
+		{
+			for (--i; i >= 0; i--)
+				delete (metaCopy[i]);
+		}
+	}
 	for (int i = IDEAS_NB / 2; i < IDEAS_NB; i++)
-		metaCopy[i] = new Dog(*dogCopy);
-
+	{
+		try {
+			metaCopy[i] = new Cat();
+		}
+		catch (std::bad_alloc &ba)
+		{
+			for (int j = i - 1; j >= IDEAS_NB / 2; j--)
+				delete (metaCopy[i]);
+			for (int k = 0; k < IDEAS_NB / 2; k++)
+				delete (metaCopy[k]);
+			std::cerr << ba.what() << std::endl;
+			return (1);
+		}
+		if (!metaCopy[i]->getBrain())
+		{
+			for (int j = i - 1; j >= IDEAS_NB / 2; j--)
+				delete (metaCopy[i]);
+			for (int k = 0; k < IDEAS_NB / 2; k++)
+				delete (metaCopy[k]);
+		}
+	}	
 	for (int i = 0; i < IDEAS_NB; i++)
 	{
 		std::cout << "\nType: " << metaCopy[i]->getType() << " " << std::endl;
@@ -101,9 +136,45 @@ int main()
 	const Animal* meta[IDEAS_NB];
 
 	for (int i = 0; i < IDEAS_NB / 2; i++)
-		meta[i] = new Dog();
+	{
+		try {
+			meta[i] = new Dog();
+		}
+		catch (std::bad_alloc &ba)
+		{
+			for (int j = i - 1; j > 0; j--)
+				delete (meta[j]);
+			std::cerr << ba.what() << std::endl;
+			return (1);
+		}
+		if (!meta[i]->getBrain())
+		{
+			for (--i; i >= 0; i--)
+				delete (meta[i]);
+		}
+	}
 	for (int i = IDEAS_NB / 2; i < IDEAS_NB; i++)
-		meta[i] = new Cat();
+	{
+		try {
+			meta[i] = new Cat();
+		}
+		catch (std::bad_alloc &ba)
+		{
+			for (int j = i - 1; j >= IDEAS_NB / 2; j--)
+				delete (meta[i]);
+			for (int k = 0; k < IDEAS_NB / 2; k++)
+				delete (meta[k]);
+			std::cerr << ba.what() << std::endl;
+			return (1);
+		}
+		if (!meta[i]->getBrain())
+		{
+			for (int j = i - 1; j >= IDEAS_NB / 2; j--)
+				delete (meta[i]);
+			for (int k = 0; k < IDEAS_NB / 2; k++)
+				delete (meta[k]);
+		}
+	}	
 	for (int i = 0; i < IDEAS_NB; i++)
 	{
 		std::cout << "\nType: " << meta[i]->getType() << " " << std::endl;

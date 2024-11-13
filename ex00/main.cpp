@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:20:48 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/01 20:08:53 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/13 17:57:37 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ int main()
 		const	Animal	*dog = new Dog();
 		const	Animal	*cat = new Cat();
 
-		std::cout << "\nType: " << meta->getType() << " " << std::endl;
+		std::cout << "\nType: " << meta->getType() << std::endl;
 		meta->makeSound();
-		std::cout << "\nType: " << dog->getType() << " " << std::endl;
+		std::cout << "\nType: " << dog->getType() << std::endl;
 		dog->makeSound();
-		std::cout << "\nType: " << cat->getType() << " " << std::endl;
+		std::cout << "\nType: " << cat->getType() << std::endl;
 		cat->makeSound();
 
 		std::cout << "\n🐕 Try to call noVirtual() on dog object" << std::endl;
@@ -55,9 +55,9 @@ int main()
 		const	WrongAnimal	*wrongMeta = new WrongAnimal();
 		const	WrongAnimal	*wrongCat = new WrongCat();
 
-		std::cout << "\nType: " << wrongMeta->getType() << " " << std::endl;
+		std::cout << "\nType: " << wrongMeta->getType() << std::endl;
 		wrongMeta->makeSound();
-		std::cout << "\nType: " << wrongCat->getType() << " " << std::endl;
+		std::cout << "\nType: " << wrongCat->getType() << std::endl;
 		wrongCat->makeSound();
 
 		std::cout << "\n🐈 Try to call noVirtual() on wrongCat object" << std::endl;

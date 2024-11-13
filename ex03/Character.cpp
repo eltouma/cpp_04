@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:37:28 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/13 13:53:37 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/13 19:27:16 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,19 @@ Character::Character(void) : ICharacter(), _name("John"), _index(0)
 		this->_inventory[i++] = NULL;
 	std::cout << "Character default construtor " << this->_name << " called. ";
 	std::cout << "Inventory: " << this->_inventory[i - 1] << std::endl;
-	std::cout << "Default address " << &(this->_name) << "\n";
 }
 
 Character::~Character(void)
 {
 	for (int i = 0; i < INDEX; i++)
 	{
-		if (this->_inventory[i] != NULL)
+		if (this->_inventory[i])
 		{
 			delete (this->_inventory[i]);
 			this->_inventory[i] = NULL;
 		}
 	}
+	this->_dropped.clear();
 	std::cout << "Character destrutor called" << std::endl;
 }
 
@@ -54,7 +54,6 @@ Character::Character(const Character& obj) : ICharacter()
 	this->_index = obj._index;
 	std::cout << "Character copy construtor " << this->_name << " called. ";
 	std::cout << "Inventory: " << this->_inventory[i - 1] << std::endl;
-	std::cout << "🥳 Copy address " << &(this->_name) << "\n";
 }
 
 Character::Character(std::string name) : ICharacter(),  _name(name)
@@ -79,7 +78,10 @@ Character& Character::operator=(const Character& rhs)
 		while (i < INDEX)
 		{
 			if (this->_inventory[i])
+			{
 				delete (this->_inventory[i]);
+				this->_inventory[i] = NULL; 
+			}
 			if (rhs._inventory[i])
 				this->_inventory[i] = rhs._inventory[i]->clone();
 			else
@@ -87,7 +89,6 @@ Character& Character::operator=(const Character& rhs)
 			i += 1;
 		}
 	}
-//	std::cout << "🥳 Copy address iiiiiiiiiii " << &(this->_name) << "\n";
 	return (*this);
 }
 
@@ -98,26 +99,25 @@ std::string const & Character::getName() const
 
 void	Character::equip(AMateria *m)
 {
-	static int	j = 0;
+	int	i = 0;
 	if (!m)
 		return ;
-	while (j < INDEX)
+	while (i < INDEX)
 	{
-		if (this->_inventory[j] == m)
+		if (this->_inventory[i] == m)
 		{
-			std::cout << m->getType() << " is already equipped" << std::endl;
+			std::cout << "Sorry " << m->getType() << " is already equipped" << std::endl;
 			return ;
 		}
-		if (this->_inventory[j] == 0)
+		if (!this->_inventory[i])
 		{
-			this->_inventory[j] = m;
+			this->_inventory[i] = m;
 			std::cout << this->_name << " equipped materia " << m->getType() << std::endl;
-			// TO DO: Mettre une exception pour ne pas avoir plusieurs fois le même message
 			return ;
 		}
-		j += 1;
+		i += 1;
 	}
-	if (j >= INDEX)
+	if (i >= INDEX)
 	{	
 		std::cout << "All of the inventory slots are already equipped" << std::endl;
 		drop(m);
@@ -126,20 +126,24 @@ void	Character::equip(AMateria *m)
 
 void	Character::unequip(int idx)
 {
-	if (idx >= INDEX)	
+	if (idx < 0 || idx >= INDEX)	
 	{
 		std::cout << "Sorry, Materia n°" << idx << " doesn't exist" << std::endl;
 		return ;
 	}
-	this->_index = idx;
 	if (this->_inventory[idx])
+	{
+		delete (this->_inventory[idx]);
 		this->_inventory[idx] = NULL;
+	}
 	std::cout << "Materia " << idx << " unequipped" << std::endl;
 }
 
 void	Character::use(int idx, ICharacter& target)
 {
-	if (!_inventory[idx])
+	if (idx < 0 || idx >= INDEX)
+		return ;
+	if (!this->_inventory[idx])
 	{
 		std::cout << "Sorry, materia n°" << idx << " doesn't exist";
 		if (idx <= 3)
@@ -154,6 +158,5 @@ void	Character::use(int idx, ICharacter& target)
 
 void	Character::drop(AMateria *m)
 {
-	//	std::cout <<  __func__  << "\n";
 	_dropped.add(m);
 }

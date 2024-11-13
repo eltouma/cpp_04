@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:55:25 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/13 15:35:55 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/13 15:55:41 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,11 @@ void	MateriaSource::learnMateria(AMateria* m)
 		i += 1;
 	}
 	if (i >= INDEX)
+	{
+		if (m)
+			delete (m);
 		return ;
+	}
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)

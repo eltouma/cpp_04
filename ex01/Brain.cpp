@@ -6,13 +6,11 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 19:46:40 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/02 14:33:49 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/13 18:23:42 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
-#include <string>
-#include <sstream>
 
 Brain::Brain(void)
 {

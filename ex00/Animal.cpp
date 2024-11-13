@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 11:40:02 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/01 19:14:24 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/13 17:56:42 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,11 @@ void	Animal::animalCopy(const Animal *meta, const Animal *cat, const Animal *dog
 	const	Animal*	copyCat = cat->clone();
 	const	Animal*	copyDog = dog->clone();
 
-	std::cout << "\nCopy type: " << copyMeta.getType() << " " << std::endl;
+	std::cout << "\nCopy type: " << copyMeta.getType() << std::endl;
 	copyMeta.makeSound();
-	std::cout << "\nCopy type: " << copyDog->getType() << " " << std::endl;
+	std::cout << "\nCopy type: " << copyDog->getType() << std::endl;
 	copyDog->makeSound();
-	std::cout << "\nCopy type: " << copyCat->getType() << " " << std::endl;
+	std::cout << "\nCopy type: " << copyCat->getType() << std::endl;
 	copyCat->makeSound();
 
 	std::cout << "\n🐕 Try to call noVirtual() on copyDog copy" << std::endl;

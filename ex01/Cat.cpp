@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:17:21 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/07 21:44:26 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/13 18:37:10 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Cat::Cat(void) : Animal() 
 {
-	this->_catBrain = new Brain();
+	this->_catBrain = new(std::nothrow) Brain();
 	this->type = "cat";
 	std::cout << "🐈 Cat default constructor called" << std::endl;
 }
@@ -28,8 +28,8 @@ Cat::~Cat(void)
 Cat::Cat(const Cat& obj) : Animal()
 {
 	this->type = obj.type;
-	this->_catBrain = new Brain(*obj._catBrain);
-	std::cout << "🐈 \033[1;33mCat copy\033[0m constructor called" << std::endl;
+	this->_catBrain = new(std::nothrow) Brain(*obj._catBrain);
+	std::cout << "🐈 Cat copy constructor called" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& rhs)
@@ -38,7 +38,7 @@ Cat& Cat::operator=(const Cat& rhs)
 	{
 		this->type = rhs.getType();
 		delete (this->_catBrain);
-		this->_catBrain = new Brain(*rhs._catBrain);
+		this->_catBrain = new(std::nothrow) Brain(*rhs._catBrain);
 	}
 	return (*this);
 }
