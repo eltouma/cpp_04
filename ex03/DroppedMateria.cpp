@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 15:59:13 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/08 04:23:17 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/13 14:44:47 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,33 +79,17 @@ void	DroppedMateria::add(AMateria* m)
 
 void	DroppedMateria::clear(void)
 {
-	std::cout << __func__ << " head " << head << std::endl;
 	Node	*tmp;
 
 	tmp = head;
+	std::cout << "AVANT dans " << __func__ << " head " << tmp << std::endl;
 	while (head)
 	{
 		tmp = head->next;
 		delete (head);
 		head = tmp;
 	}
-	if (head)
-		delete (head);
-/*
-	Node*	current; 
-	Node*	tmp;
-
-	std::cout << __func__ << " head " << head << std::endl;
-	current = head;
-	while (current->next != NULL)
-	{
-		tmp = current;
-		current = current->next;
-		delete (tmp->node);
+	if (tmp)
 		delete (tmp);
-	}
-	delete (current);
-	current = NULL;
-	head = NULL;
-*/
+	std::cout << "APRES dans " << __func__ << " head " << tmp << std::endl;
 }

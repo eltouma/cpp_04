@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 11:48:13 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/13 10:19:32 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/13 10:29:29 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,3 @@ public:
 	virtual AMateria* clone(void) const = 0;
 	virtual void use(ICharacter& target);
 };
-
-// mettre ça dans le main()
-/*
-class	droppedMateria
-{
-	AMateria*	materia;
-	droppedMateria*	next;
-}
-*/

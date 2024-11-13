@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:37:28 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/13 10:05:51 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/13 13:53:37 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,80 @@
 
 Character::Character(void) : ICharacter(), _name("John"), _index(0)
 {
-	for (int i = 0; i < INDEX; i++)
-		this->_inventory[i] = NULL;
+	int	i;
+
+	i = 0;
+	while (i < INDEX)
+		this->_inventory[i++] = NULL;
 	std::cout << "Character default construtor " << this->_name << " called. ";
-	std::cout << "Inventory: " << this->_inventory[3] << std::endl;
+	std::cout << "Inventory: " << this->_inventory[i - 1] << std::endl;
+	std::cout << "Default address " << &(this->_name) << "\n";
 }
 
 Character::~Character(void)
 {
+	for (int i = 0; i < INDEX; i++)
+	{
+		if (this->_inventory[i] != NULL)
+		{
+			delete (this->_inventory[i]);
+			this->_inventory[i] = NULL;
+		}
+	}
 	std::cout << "Character destrutor called" << std::endl;
 }
 
-// TO DO: clone les materia. Deep copy
-Character::Character(const Character& obj) : ICharacter(), _index(0)
+Character::Character(const Character& obj) : ICharacter()
 {
-	*this = obj;
-	for (int i = 0; i < INDEX; i++)
-		this->_inventory[i] = NULL;
+	int	i;
+
+	i = 0;
+	while (i < INDEX)
+	{
+		if (obj._inventory[i])
+			this->_inventory[i] = obj._inventory[i]->clone();
+		else
+			this->_inventory[i] = NULL; 
+		i += 1;
+	}
+	this->_name = obj._name;
+	this->_index = obj._index;
 	std::cout << "Character copy construtor " << this->_name << " called. ";
-	std::cout << "Inventory: " << this->_inventory[3] << std::endl;
+	std::cout << "Inventory: " << this->_inventory[i - 1] << std::endl;
+	std::cout << "🥳 Copy address " << &(this->_name) << "\n";
 }
 
-Character::Character(std::string name) : ICharacter(),  _name(name), _index(0)
+Character::Character(std::string name) : ICharacter(),  _name(name)
 {
-	for (int i = 0; i < INDEX; i++)
-		this->_inventory[i] = NULL;
-	std::cout << this->_name << " is created. Inventory: " << this->_inventory[3] << std::endl;
+	int	i;
+
+	i = 0;
+	while (i < INDEX)
+		this->_inventory[i++] = NULL;
+	std::cout << this->_name << " is created. Inventory: " << this->_inventory[i - 1] << std::endl;
 }
 
-// TO DO delete + linked list
 Character& Character::operator=(const Character& rhs)
 {
+	int	i;
+
+	i = 0;
 	if (this != &rhs)
+	{
 		this->_name = rhs.getName();
+		this->_index = rhs._index;
+		while (i < INDEX)
+		{
+			if (this->_inventory[i])
+				delete (this->_inventory[i]);
+			if (rhs._inventory[i])
+				this->_inventory[i] = rhs._inventory[i]->clone();
+			else
+				this->_inventory[i] = NULL; 
+			i += 1;
+		}
+	}
+//	std::cout << "🥳 Copy address iiiiiiiiiii " << &(this->_name) << "\n";
 	return (*this);
 }
 
@@ -113,6 +154,6 @@ void	Character::use(int idx, ICharacter& target)
 
 void	Character::drop(AMateria *m)
 {
-//	std::cout <<  __func__  << "\n";
+	//	std::cout <<  __func__  << "\n";
 	_dropped.add(m);
 }

@@ -6,19 +6,17 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 14:21:46 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/08 04:16:21 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/13 11:07:05 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
-#include <string>
-#include <sstream>
+//#include <iostream>
+#include "AMateria.hpp"
 #include "ICharacter.hpp"
 #include "DroppedMateria.hpp"
 
-//# define INVENTORY 4
 # define INDEX 4
 
 class AMateria;
@@ -28,10 +26,7 @@ class 	Character : public ICharacter
 	std::string	_name;
 	AMateria*	_inventory[INDEX];
 	int		_index;
-//	DroppedMateria*	_dropped;
 	DroppedMateria	_dropped;
-//	AMateria*	_dropped;
-//	int		_droppedSize;
 
 public:
 	Character(void);
@@ -46,27 +41,3 @@ public:
 	virtual void	use(int idx, ICharacter& target);
 	virtual void	drop(AMateria* m);
 };
-
-
-
-
-/*
-
-
-class 	sorts
-{
-	std::string	_name;
-	sorts*		next;
-	
-sorts(){
-name = nom;
-next = null;}
-
-while sorts->next
-{
-	sorts = next;
-}
-	next = new Sorts();
-	
-}
-*/

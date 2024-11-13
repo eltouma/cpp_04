@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 12:34:32 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/06 11:06:58 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/13 13:27:16 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,18 @@
 
 Cure::Cure(void) : AMateria("cure")
 {
-	std::cout << "🧖 Cure default constructor called" << std::endl;
+	std::cout << "\033[1;33mCure default\033[0m destructor called" << std::endl;
 }
 
 Cure::~Cure(void)
 {
-	std::cout << "🧖 Cure destructor called" << std::endl;
+	std::cout << "\033[1;33mCure destructor\033[0m called" << std::endl;
 }
 
 Cure::Cure(const Cure & obj) : AMateria()
 {
-	this->_type = obj._type;
 	*this = obj;
-	std::cout << "🧖 Cure copy destructor called" << std::endl;
+	std::cout << "\033[1;33mCure copy\033[0m destructor called" << std::endl;
 }
 
 Cure& Cure::operator=(const Cure & rhs)

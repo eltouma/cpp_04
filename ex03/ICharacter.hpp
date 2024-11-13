@@ -6,18 +6,15 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 14:21:46 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/07 14:36:27 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/13 12:18:14 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
-#include <string>
+#include "AMateria.hpp"
 
 class AMateria;
-
-// TO DO : forme canonique ? cf correction
 
 class 	ICharacter
 {
