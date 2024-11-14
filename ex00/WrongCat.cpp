@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:17:21 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/01 17:49:15 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/14 17:19:29 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ std::string	WrongCat::getType(void) const
 
 void	WrongCat::makeSound(void) const
 {
-	std::cout << "The bunny grumbles.. Wait! What?" << std::endl; 
+	std::cout << "The wrong cat grumbles.. Wait! What?" << std::endl;
 }
 
 void	WrongCat::noVirtual(void) const
@@ -60,5 +60,5 @@ void	WrongCat::noVirtual(void) const
 
 void	WrongCat::animalTemper(void) const
 {
-	std::cout << "Your bunny doesn't care about you" << std::endl; 
+	std::cout << "Your wrong cat doesn't care about you" << std::endl;
 }
