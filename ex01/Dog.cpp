@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:11:05 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/13 18:37:22 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/14 17:12:33 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ Dog& Dog::operator=(const Dog& rhs)
 
 Dog* Dog::clone(void) const
 {
-	return (new Dog(*this));
+	return (new(std::nothrow) Dog(*this));
 }
 
 Brain*	Dog::getBrain(void) const

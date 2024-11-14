@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:11:05 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/02 16:00:32 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/14 17:13:07 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Dog::Dog(void) : Animal()
 {
-	this->_dogBrain = new Brain();
+	this->_dogBrain = new(std::nothrow) Brain();
 	this->type = "dog";
 	std::cout << "🐕 Dog default constructor called" << std::endl;
 }
@@ -28,7 +28,7 @@ Dog::~Dog(void)
 Dog::Dog(const Dog& obj) : Animal()
 {
 	this->type = obj.type;
-	this->_dogBrain = new Brain(*obj._dogBrain);
+	this->_dogBrain = new(std::nothrow) Brain(*obj._dogBrain);
 	*this = obj;
 	std::cout << "🐕 \033[1;33mDog copy\033[0m constructor called" << std::endl;
 }
@@ -39,14 +39,14 @@ Dog& Dog::operator=(const Dog& rhs)
 	{
 		this->type = rhs.getType();
 		delete (this->_dogBrain);
-		this->_dogBrain = new Brain();
+		this->_dogBrain = new(std::nothrow) Brain();
 	}
 	return (*this);
 }
 
 Dog* Dog::clone(void) const
 {
-	return (new Dog(*this));
+	return (new(std::nothrow) Dog(*this));
 }
 
 std::string	Dog::getType(void) const
