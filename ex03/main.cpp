@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 12:17:19 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/13 19:33:35 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/14 17:00:55 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,19 @@ static void test42(void)
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
 	ICharacter* bob = new Character("bob");
+
+	std::cout << std::endl;
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
-
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
+	me->equip(tmp);
 	me->use(0, *bob);
 	me->use(1, *bob);
+	std::cout << std::endl;
+
 	delete (bob);
 	delete (me);
 	delete (src);
@@ -51,9 +55,11 @@ static void	cloneMateria(void)
    	ICharacter *john = new Character();
 	ICharacter *jackson = new Character("Jackson");
 
+	std::cout << std::endl;
 	iceClone->use(*john);
 	cureClone->use(*jackson);
 
+	std::cout << std::endl;
 	delete (iceMateria);
 	delete (cureMateria);
 	delete (iceClone);
@@ -66,46 +72,49 @@ static void	justFour(void)
 {
 	draw_tab("Just four");
 
+   	ICharacter *john = new Character();
+	ICharacter *jackson = new Character("Jackson");
+	ICharacter *jess = new Character("Jess");
+
 	AMateria *iceMateria0 = new Ice();
 	AMateria *iceMateria1 = new Ice();
 	AMateria *iceMateria2 = new Ice();
 	AMateria *iceMateria3 = new Ice();
-   	ICharacter *john = new Character();
-	ICharacter *jackson = new Character("Jackson");
-	ICharacter *jess = new Character("Jess");
+
 	AMateria *cureMateria0 = new Cure();
 	AMateria *cureMateria1 = new Cure();
 	AMateria *cureMateria2 = new Cure();
 	AMateria *cureMateria3 = new Cure();
 
+	std::cout << std::endl;
 	john->equip(iceMateria0);
 	john->equip(iceMateria1);
-	john->equip(iceMateria2);
-	jess->equip(iceMateria3);
-
-	iceMateria0->use(*john);
-	iceMateria0->use(*jackson);
-	jess->use(0, *jackson);
-	john->use(0, *jess);
-	cureMateria0->use(*jess);
-
+	john->equip(cureMateria2);
+	john->equip(iceMateria3);
+	std::cout << std::endl;
 	jackson->equip(cureMateria0);
 	jackson->equip(cureMateria1);
-	jackson->equip(cureMateria2);
+	std::cout << std::endl;
+	iceMateria0->use(*john);
+	iceMateria3->use(*jackson);
+	std::cout << std::endl;
+	john->use(2, *jess);
+	jackson->use(1, *jackson);
+	std::cout << std::endl;
+	jackson->equip(iceMateria2);
 	jackson->equip(cureMateria3);
-
+	std::cout << std::endl;
 	john->unequip(0);
 	john->unequip(1);
 	john->unequip(2);
-	john->unequip(2);
 	john->unequip(3);
-
+	std::cout << std::endl;
 	jackson->unequip(0);
 	jackson->unequip(1);
 	jackson->unequip(2);
-	jackson->unequip(2);
 	jackson->unequip(3);
 
+	std::cout << std::endl;
 	delete (john);
 	delete (jackson);
 	delete (jess);
@@ -117,21 +126,27 @@ static void	moreThanFour(void)
 
 	AMateria *iceMateria0 = new Ice();
 	AMateria *iceMateria1 = new Ice();
-	AMateria *iceMateria2 = new Ice();
+	AMateria *cureMateria2 = new Cure();
 	AMateria *iceMateria3 = new Ice();
 	AMateria *iceMateria4 = new Ice();
 	AMateria *iceMateria5 = new Ice();
    	ICharacter *john = new Character();
+   	ICharacter *jess = new Character("Jess");
 
+	std::cout << std::endl;
 	john->equip(iceMateria0);
 	john->equip(iceMateria1);
-	john->equip(iceMateria2);
-	john->unequip(1);
+	john->equip(cureMateria2);
 	john->equip(iceMateria3);
 	john->equip(iceMateria4);
 	john->equip(iceMateria5);
+	std::cout << std::endl;
+	john->use(2, *jess);
+	john->use(3, *jess);
 
+	std::cout << std::endl;
 	delete (john);
+	delete (jess);
 }
 
 static void	duplicateMateria(void)
@@ -141,24 +156,68 @@ static void	duplicateMateria(void)
 	AMateria *iceMateria0 = new Ice();
 	AMateria *iceMateria1 = new Ice();
 	AMateria *iceMateria2 = new Ice();
-	AMateria *iceMateria3 = new Ice();
+	AMateria *cureMateria3 = new Cure();
 	AMateria *iceMateria4 = new Ice();
 	AMateria *iceMateria5 = new Ice();
    	ICharacter *john = new Character();
 
+	std::cout << std::endl;
+	john->equip(iceMateria0);
+	std::cout << std::endl;
 	john->equip(iceMateria0);
 	john->equip(iceMateria0);
-	john->equip(iceMateria0);
-	john->equip(iceMateria1);
+	std::cout << std::endl;
 	john->equip(iceMateria1);
 	john->equip(iceMateria2);
-	john->equip(iceMateria2);
-	john->equip(iceMateria3);
+	john->equip(cureMateria3);
+	std::cout << std::endl;
+	john->equip(cureMateria3);
 	john->equip(iceMateria4);
 	john->equip(iceMateria5);
 
+	std::cout << std::endl;
 	delete (john);
 }
+
+/*
+static void	materiaSource(void)
+{
+	draw_tab("Materia Source");
+
+	IMateriaSource	*src = new MateriaSource();
+//	AMateria	*null = NULL;
+	AMateria	*iceMateria; // = new Ice();
+   	ICharacter *john = new Character("ok");
+
+//	src->learnMateria(null);
+	src->learnMateria(new Ice());
+	std::cout << "hello" << std::endl;
+//	null = src->createMateria("cure");
+	iceMateria = src->createMateria("ice");
+//	john->equip(iceMateria);
+	//src->createMateria("cure");
+	std::cout << "hello" << std::endl;
+//	john->equip(null);
+	IMateriaSource* src = new MateriaSource();
+src->learnMateria(new Ice());
+src->learnMateria(new Cure());
+ICharacter* me = new Character("me");
+AMateria* tmp;
+tmp = src->createMateria("ice");
+me->equip(tmp);
+tmp = src->createMateria("cure");
+me->equip(tmp);
+ICharacter* bob = new Character("bob");
+me->use(0, *bob);
+me->use(1, *bob);
+delete bob;
+delete me;
+delete src;
+	//delete (src);
+//	delete (iceMateria);
+//	delete (john);
+}
+*/
 
 static void	error(void)
 {
@@ -166,40 +225,58 @@ static void	error(void)
 
 	AMateria *iceMateria0 = new Ice();
 	AMateria *iceMateria2 = new Ice();
-	AMateria *iceMateria3 = new Ice();
+	AMateria *cureMateria3 = new Cure();
 	AMateria *iceMateria4 = new Ice();
 	AMateria *iceMateria5 = new Ice();
    	ICharacter *john = new Character();
 	ICharacter *jess = new Character("Jess");
+	IMateriaSource	*src = new MateriaSource();
+	AMateria	*null = NULL;
 
+	std::cout << std::endl;
 	john->unequip(0);
 	john->unequip(1);
 	john->unequip(2);
+	std::cout << std::endl;
 	john->equip(iceMateria0);
-	john->equip(NULL);
 	john->equip(iceMateria2);
-	john->equip(iceMateria3);
+	std::cout << std::endl;
+	john->equip(NULL);
+	std::cout << std::endl;
+	john->equip(iceMateria2);
+	john->equip(iceMateria2);
+	std::cout << std::endl;
+	john->equip(cureMateria3);
 	john->equip(iceMateria4);
+	std::cout << std::endl;
 	john->unequip(0);
 	john->unequip(1);
+	std::cout << std::endl;
 	john->unequip(2147483647);
 	john->unequip(-2147483648);
+	std::cout << std::endl;
 	john->unequip(3);
+	std::cout << std::endl;
 	john->unequip(42);
 	john->unequip(-42);
-	john->use(0, *jess);
-	john->use(2, *jess);
-
-	jess->equip(NULL);
-	jess->equip(iceMateria5);
+	jess->use(0, *john);
+	john->unequip(3);
+	std::cout << std::endl;
 	iceMateria5->use(*john);
 	iceMateria5->use(*jess);
+	std::cout << std::endl;
 	jess->use(0, *john);
 	jess->unequip(0);
-	jess->use(0, *john);
-	
+	std::cout << std::endl;
+	src->learnMateria(null);
+	src->createMateria("");
+	john->equip(null);
+
+	std::cout << std::endl;
 	delete (john);
 	delete (jess);
+	delete (iceMateria5);
+	delete (src);
 }
 
 int	main()
@@ -208,16 +285,13 @@ int	main()
 	std::cout << std::endl;
 	cloneMateria();
 	std::cout << std::endl;
-	moreThanFour();
-	std::cout << std::endl;
 	justFour();
+	std::cout << std::endl;
+	moreThanFour();
 	std::cout << std::endl;
 	duplicateMateria();
 	std::cout << std::endl;
 	error();
-	std::cout << std::endl;
-	std::cout << std::endl;
-	std::cout << std::endl;
 }
 /*
    AMateria        *tmp;

@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:55:25 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/13 15:55:41 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/14 17:00:02 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,10 @@ void	MateriaSource::learnMateria(AMateria* m)
 	static int	i = 0;
 
 	if (!m)
+	{
+		std::cout << "Sorry, this materia doesn't exist" << std::endl;
 		return ;
+	}
 	while (i < INDEX)
 	{
 		if (this->_inventory[i] == 0)
@@ -86,6 +89,11 @@ void	MateriaSource::learnMateria(AMateria* m)
 
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
+	if (type.length() == 0)
+	{
+		std::cout << "Invalid string" << std::endl;
+		return (NULL);
+	}
 	for (int i = 0; i < INDEX; i++)
 	{
 		if (this->_inventory[i] && !this->_inventory[i]->getType().compare(type))

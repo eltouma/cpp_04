@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:37:28 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/13 19:27:16 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/14 17:01:45 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,10 @@ void	Character::equip(AMateria *m)
 {
 	int	i = 0;
 	if (!m)
+	{
+		std::cout << "Sorry, this materia doesn't exist" << std::endl;
 		return ;
+	}
 	while (i < INDEX)
 	{
 		if (this->_inventory[i] == m)
@@ -126,30 +129,25 @@ void	Character::equip(AMateria *m)
 
 void	Character::unequip(int idx)
 {
-	if (idx < 0 || idx >= INDEX)	
+	if (idx < 0 || idx >= INDEX || !this->_inventory[idx])
 	{
-		std::cout << "Sorry, Materia n°" << idx << " doesn't exist" << std::endl;
+		std::cout << "Sorry, materia n°" << idx << " doesn't exist" << std::endl;
 		return ;
 	}
 	if (this->_inventory[idx])
 	{
 		delete (this->_inventory[idx]);
 		this->_inventory[idx] = NULL;
+		std::cout << "Materia " << idx << " unequipped" << std::endl;
+		return ;
 	}
-	std::cout << "Materia " << idx << " unequipped" << std::endl;
 }
 
 void	Character::use(int idx, ICharacter& target)
 {
-	if (idx < 0 || idx >= INDEX)
-		return ;
-	if (!this->_inventory[idx])
+	if (idx < 0 || idx >= INDEX || !this->_inventory[idx])
 	{
-		std::cout << "Sorry, materia n°" << idx << " doesn't exist";
-		if (idx <= 3)
-			std::cout << " anymore" << std::endl;
-		else
-			std::cout << std::endl;
+		std::cout << "Sorry, materia n°" << idx << " doesn't exist" << std::endl;
 		return ;
 	}
 	if (idx < INDEX)
